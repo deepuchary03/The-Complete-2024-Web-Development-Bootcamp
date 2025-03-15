@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= book.title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1><%= book.title %></h1>
+    <h3>by <%= book.author || "Unknown Author" %></h3>
+    <p><strong>Rating:</strong> <%= book.rating %>/5</p>
+    <p><strong>Notes:</strong> <%= book.notes || "No notes available" %></p>
+    <p><strong>Read Date:</strong> <%= book.read_date || "Not specified" %></p>
+
+    <% if (book.cover_url) { %>
+    <img
+      src="<%= book.cover_url %>"
+      alt="Book Cover"
+      style="max-width: 200px"
+    />
+    <% } else { %>
+    <p>No cover image available</p>
+    <% } %>
+
+    <a href="/">Back to Home</a>
+  </body>
+</html>

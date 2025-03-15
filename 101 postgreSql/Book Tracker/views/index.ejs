@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Tracker</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1>My Book Tracker</h1>
+    <a href="#add-book">Add a New Book</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Rating</th>
+          <th>Notes</th>
+          <th>Read Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% books.forEach(book => { %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.rating %></td>
+          <td><%= book.notes %></td>
+          <td><%= book.read_date %></td>
+          <td>
+            <form action="/books/delete/<%= book.id %>" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <form id="add-book" action="/books/add" method="POST">
+      <h2>Add a New Book</h2>
+      <input type="text" name="title" placeholder="Title" required />
+      <input type="text" name="author" placeholder="Author" />
+      <input
+        type="number"
+        name="rating"
+        placeholder="Rating (1-5)"
+        min="1"
+        max="5"
+      />
+      <textarea name="notes" placeholder="Notes"></textarea>
+      <input type="date" name="read_date" />
+      <input type="text" name="cover_url" placeholder="Cover URL" />
+      <button type="submit">Add Book</button>
+    </form>
+  </body>
+</html>
