@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "../public/styles.css";
 
 function Card(props) {
   return (
-    <div>
+    <div className="container">
       <h1>{props.name}</h1>
       <img src={props.src} height="200px" width="300px" />
     </div>
