@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import bcrypt from "bcrypt";
-
+//this saltRounds are important for increasing security 
 const saltRounds = 10;
 
 const app = express();
